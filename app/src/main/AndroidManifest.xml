@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="pk.ipc"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="pk.ipc.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="pk.ipc.play.SettingActivity" />
+
+        <service android:name="pk.ipc.MessengerService" android:process=":MessengerService">
+            <intent-filter>
+                <action android:name="MessengerService.TTT" />
+            </intent-filter>
+        </service>
+        <service android:name="pk.ipc.AIDLService" android:process=":AIDLService">
+            <intent-filter>
+                <action android:name="AIDLService.TTT" />
+            </intent-filter>
+        </service>
+        <service android:name="pk.ipc.PlayService" />
+        <service android:name="pk.ipc.play.OneService" />
+        <service android:name="pk.ipc.play.TwoService" />
+
+    </application>
+
+</manifest>
